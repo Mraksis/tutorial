@@ -1,4 +1,6 @@
 <?
+$PERM["lichnyy-kabinet-pokupatelya"]["7"]="W";
+$PERM["lichnyy-kabinet-prodavtsa"]["9"]="W";
 $PERM["search"]["6"]="W";
 $PERM["products"]["6"]="W";
 $PERM["services"]["6"]="W";
