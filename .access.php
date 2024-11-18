@@ -1,5 +1,9 @@
 <?
+$PERM["/"]["10"]="X";
+$PERM["/"]["*"]="R";
+$PERM["lichnyy-kabinet-pokupatelya"]["10"]="X";
 $PERM["lichnyy-kabinet-pokupatelya"]["7"]="W";
+$PERM["bitrix"]["10"]="D";
 $PERM["lichnyy-kabinet-prodavtsa"]["9"]="W";
 $PERM["search"]["6"]="W";
 $PERM["products"]["6"]="W";
@@ -8,5 +12,4 @@ $PERM["news"]["6"]="W";
 $PERM["contacts"]["6"]="W";
 $PERM["company"]["6"]="W";
 $PERM["index.php"]["6"]="W";
-$PERM["/"]["*"]="R";
 ?>
