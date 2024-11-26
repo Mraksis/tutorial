@@ -10,4 +10,5 @@ $MESS ['MENU_THREE'] = "Меню три";
 $MESS ['PROPERTIES'] = "Недвижимость";
 $MESS ['ABOUT_US'] = "О Нас";
 $MESS ['CONTACT_US'] = "Контакты";
+
 ?>
