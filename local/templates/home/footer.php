@@ -28,41 +28,30 @@ Loc::loadLanguageFile(__FILE__);
 
 
           </div>
-          <?$APPLICATION->IncludeComponent(
-	"bitrix:menu",
-	"",
-	Array(
-		"ALLOW_MULTI_SELECT" => "N",
-		"CHILD_MENU_TYPE" => "left",
-		"DELAY" => "N",
-		"MAX_LEVEL" => "1",
-		"MENU_CACHE_GET_VARS" => array(""),
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "N",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "top",
-		"USE_EXT" => "N"
-	)
-);?>
           <div class="col-lg-4 mb-5 mb-lg-0">
             <div class="row mb-5">
               <div class="col-md-12">
                 <h3 class="footer-heading mb-4"><?= Loc::getMessage('NAVIGATIONS')?></h3>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
-                  <li><a href="#"><?= Loc::getMessage('HOME_ID')?></a></li>
-                  <li><a href="#"><?= Loc::getMessage('BUY')?></a></li>
-                  <li><a href="#"><?= Loc::getMessage('RENT')?></a></li> 
-                  <li><a href="#"><?= Loc::getMessage('PROPERTIES')?></a></li>
-                </ul>
-              </div>
-            <div class="col-md-6 col-lg-6">
-              <ul class="list-unstyled">
-                <li><a href="#"><?= Loc::getMessage('ABOUT_US')?></a></li>
-                <li><a href="#"><?= Loc::getMessage('PRIVACY_POLICY')?></a></li>
-                <li><a href="#"><?= Loc::getMessage('CONTACT_US')?></a></li>
-                <li><a href="#"><?= Loc::getMessage('TERMS')?></a></li>
+                <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"footer_menu", 
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "1",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "top",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => "footer_menu"
+	),
+	false
+);?>
               </ul>
             </div>
           </div>
