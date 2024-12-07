@@ -21,11 +21,11 @@ use Bitrix\Main\Localization\Loc;
 		<?=$arResult["NAV_STRING"]?><br />
 	<?endif;?>
 	<?foreach($arResult["ITEMS"] as $arItem):?>
-<?
-$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-?>
-	<div class="site-blocks-cover" style="background-image: url('<?= SITE_TEMPLATE_PATH ?>/images/hero_bg_1.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">
+	<?
+	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+	?>
+	<div class="site-blocks-cover" style="background-image: url('<?= $arItem["DETAIL_PICTURE"]["SRC"] ?>');" data-aos="fade" data-stellar-background-ratio="0.5" id=<?=$this->GetEditAreaId($arItem['ID']);?>>
 		
   		<div class="text">
 			<h2><?= $arItem["NAME"]?></h2>
@@ -39,7 +39,4 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 	</div>
 
 	<?endforeach;?>
-	<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-		<br /><?=$arResult["NAV_STRING"]?>
-	<?endif;?>
 </div>

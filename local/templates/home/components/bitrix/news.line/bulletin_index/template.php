@@ -32,10 +32,10 @@ use Bitrix\Main\Localization\Loc;
 		$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 		?>
-        <div class="col-md-6 col-lg-4 mb-4">
+        <div class="col-md-6 col-lg-4 mb-4" id=<?=$this->GetEditAreaId($arItem['ID']);?>>
           <a href="<?= $arItem["DETAIL_PAGE_URL"]?>" class="prop-entry d-block">
             <figure>
-              <img src="<?= SITE_TEMPLATE_PATH ?>/images/img_1.jpg" alt="Image" class="img-fluid">
+              <img src="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid">
             </figure>
             <div class="prop-text">
               <div class="inner">
@@ -46,19 +46,19 @@ use Bitrix\Main\Localization\Loc;
               <div class="prop-more-info">
                 <div class="inner d-flex">
                   <div class="col">
-                    <span>Area:</span>
+                    <span><?= Loc::getMessage("AREA")?></span>
                     <strong><?= $arItem["PROPERTY_AREA_VALUE"]?>m<sup>2</sup></strong>
                   </div>
                   <div class="col">
-                    <span>Beds:</span>
+                    <span><?= Loc::getMessage("BEDS")?></span>
                     <strong><?= $arItem["PROPERTY_BED_COUNT_VALUE"]?></strong>
                   </div>
                   <div class="col">
-                    <span>Baths:</span>
+                    <span><?= Loc::getMessage("BATHS")?></span>
                     <strong><?= $arItem["PROPERTY_BATH_COUNT_VALUE"]?></strong>
                   </div>
                   <div class="col">
-                    <span>Garages:</span>
+                    <span><?= Loc::getMessage("GARAGE")?></span>
                     <strong><?= $arItem["PROPERTY_GARAGE_CHECK_VALUE"]?></strong>
                   </div>
                 </div>

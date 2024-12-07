@@ -3,9 +3,36 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Объявления");
 ?>
 
+<?php
+$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
+?>
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "",
+	)
+);?>
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url('<?= SITE_TEMPLATE_PATH ?>/images/hero_bg_2.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-10">
+            <h1 class="mb-2">About Us</h1>
+            <div><a href="index.html">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">About</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	".default", 
+	"bulletin_news", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -24,15 +51,39 @@ $APPLICATION->SetTitle("Объявления");
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "ID",
+			1 => "CODE",
+			2 => "NAME",
+			3 => "PREVIEW_TEXT",
+			4 => "PREVIEW_PICTURE",
+			5 => "DETAIL_TEXT",
+			6 => "DETAIL_PICTURE",
+			7 => "IBLOCK_ID",
+			8 => "IBLOCK_CODE",
+			9 => "TIMESTAMP_X",
+			10 => "PROPERTY_AREA",
+			11 => "PROPERTY_LOCATION",
+			12 => "PROPERTY_PRICE",
+			13 => "PROPERTY_GARAGE_CHECK",
+			14 => "PROPERTY_BATH_COUNT",
+			15 => "PROPERTY_BED_COUNT",
+			16 => "PROPERTY_FLOOR_COUNT",
+			17 => "",
 		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "LOCATION",
+			1 => "BATH_COUNT",
+			2 => "BED_COUNT",
+			3 => "FLOOR_COUNT",
+			4 => "GARAGE_CHECK",
+			5 => "AREA",
+			6 => "PRIORITY_CHECK",
+			7 => "LINKS_EXTERNAL",
+			8 => "PRICE",
+			9 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -44,8 +95,22 @@ $APPLICATION->SetTitle("Объявления");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "ID",
+			1 => "CODE",
+			2 => "NAME",
+			3 => "PREVIEW_PICTURE",
+			4 => "DETAIL_TEXT",
+			5 => "IBLOCK_ID",
+			6 => "IBLOCK_CODE",
+			7 => "TIMESTAMP_X",
+			8 => "PROPERTY_AREA",
+			9 => "PROPERTY_LOCATION",
+			10 => "PROPERTY_PRICE",
+			11 => "PROPERTY_GARAGE_CHECK",
+			12 => "PROPERTY_BATH_COUNT",
+			13 => "PROPERTY_BED_COUNT",
+			14 => "PROPERTY_FLOOR_COUNT",
+			15 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
 			0 => "LOCATION",
@@ -55,8 +120,9 @@ $APPLICATION->SetTitle("Объявления");
 			4 => "GARAGE_CHECK",
 			5 => "AREA",
 			6 => "PRIORITY_CHECK",
-			7 => "PRICE",
-			8 => "",
+			7 => "LINKS_EXTERNAL",
+			8 => "PRICE",
+			9 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -67,7 +133,7 @@ $APPLICATION->SetTitle("Объявления");
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "pagination",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"SEF_FOLDER" => "/obyavleniya/",
@@ -88,7 +154,11 @@ $APPLICATION->SetTitle("Объявления");
 		"USE_REVIEW" => "N",
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
-		"COMPONENT_TEMPLATE" => ".default",
+		"COMPONENT_TEMPLATE" => "bulletin_news",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"USE_SHARE" => "N",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
@@ -96,4 +166,6 @@ $APPLICATION->SetTitle("Объявления");
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
