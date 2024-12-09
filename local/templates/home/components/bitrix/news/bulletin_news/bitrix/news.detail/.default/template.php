@@ -13,6 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?
+use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
 Loc::loadLanguageFile(__FILE__);
 ?>
@@ -172,17 +173,17 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
           <div class="col-md-12">
             <div>
               <h2 class="h4 text-black"><?= Loc::getMessage('MATS')?></h2>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
+                <?foreach ($arResult["DISPLAY_PROPERTIES"]["MATERIALS_ADD"]["VALUE"] as $mat):?>
+                  <p><?=CFile::ShowImage($mat, 200, 200, "border=0", "", true)?></p>
+                <?endforeach?>
             </div>
           </div>
           <div class="col-md-12">
             <div>
               <h2 class="h4 text-black"><?= Loc::getMessage('LINKS')?></h2>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
-                  <p><?= $arResult["DETAIL_TEXT"] ?></p>
+                <?foreach ($arResult["DISPLAY_PROPERTIES"]["LINKS_EXTERNAL"]["VALUE"] as $link):?>
+                  <p><a href="<?=$link?>"><?=$link?></a></p>
+                <?endforeach?>
             </div>
           </div>
     </div>
