@@ -105,7 +105,7 @@ use Bitrix\Main\Localization\Loc;
         <div class="row align-items-center">
           <div class="col-8 col-md-8 col-lg-4">
             <h1 class="">
-              <a href="index.html" class="h5 text-uppercase text-black"><strong>
+              <a href="index.php" class="h5 text-uppercase text-black"><strong>
                   <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     "",

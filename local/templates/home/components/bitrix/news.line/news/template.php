@@ -29,7 +29,7 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 <div class="news-line">
     <div class="row">
 <?foreach($arResult["ITEMS"] as $arItem):?>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100" id=<?=$this->GetEditAreaId($arItem['ID']);?>>
           <a href="#"><img src="<?= SITE_TEMPLATE_PATH ?>/images/img_4.jpg" alt="Image" class="img-fluid"></a>
           <div class="p-4 bg-white">
             <span class="d-block text-secondary small text-uppercase"><?= $arItem["DATE_ACTIVE_FROM"];?></span>

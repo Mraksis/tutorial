@@ -30,7 +30,7 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 </div>
 <div class="row">
 	<?foreach($arResult["ITEMS"] as $arItem):?>	
-		<div class="col-md-6 col-lg-4 mb-4">
+		<div class="col-md-6 col-lg-4 mb-4" id=<?=$this->GetEditAreaId($arItem['ID']);?>>
 			<a href="<?=$arItem["PROPERTY_SERVICE_LINK_VALUE"]?>" class="service text-center border rounded">
 				<span class="icon flaticon-house"></span>
 				<h2 class="service-heading"><?= $arItem["NAME"];?></h2>
