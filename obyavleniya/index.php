@@ -3,33 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Объявления");
 ?>
 
-<?php
-$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-?>
-
-<?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => "",
-		"PATH" => "",
-	)
-);?>
-
-<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url('<?= SITE_TEMPLATE_PATH ?>/images/hero_bg_2.jpg');" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-          <div class="col-md-10">
-            <h1 class="mb-2">About Us</h1>
-            <div><a href="index.html">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">About</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"bulletin_news", 
@@ -131,7 +104,7 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "3",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -171,5 +144,4 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 	),
 	false
 );?>
-
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

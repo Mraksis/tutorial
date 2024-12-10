@@ -38,6 +38,7 @@ use Bitrix\Main\Localization\Loc;
 
 <body>
 <?$APPLICATION->ShowPanel();?>
+
   <div class="site-loader"></div>
 
   <div class="site-wrap">
@@ -105,7 +106,7 @@ use Bitrix\Main\Localization\Loc;
         <div class="row align-items-center">
           <div class="col-8 col-md-8 col-lg-4">
             <h1 class="">
-              <a href="index.php" class="h5 text-uppercase text-black"><strong>
+              <a href="/" class="h5 text-uppercase text-black"><strong>
                   <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     "",
@@ -152,5 +153,19 @@ use Bitrix\Main\Localization\Loc;
       </div>
     </div>
   </div>
-  
-  
+<? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
+  <?$APPLICATION->IncludeComponent(
+  "bitrix:breadcrumb", 
+  "nav", 
+    array(
+      "AREA_FILE_SHOW" => "file",
+      "AREA_FILE_SUFFIX" => "inc",
+      "EDIT_TEMPLATE" => "",
+      "PATH" => "",
+      "COMPONENT_TEMPLATE" => "nav",
+      "START_FROM" => "0",
+      "SITE_ID" => "s1"
+    ),
+  false
+  );?>
+<? endif; ?> 
