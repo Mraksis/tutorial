@@ -347,4 +347,23 @@ class AgentMigration20241205173421 extends Version
   ),
 ));
         }
+    public function down()
+    {
+        $helper = $this->getHelperManager();
+
+        $hlblockId = $helper->Hlblock()->getHlblockIdIfExists('Test');
+
+        $helper->UserTypeEntity()->deleteUserTypeEntitiesIfExists(
+            'HLBLOCK_' . $hlblockId,
+            [
+                'UF_NAME',
+                'UF_PRICE',
+                'UF_WEIGHT',
+                'UF_CREATED_AT',
+                'UF_UPDATED_AT',
+            ]
+        );
+        $helper->Hlblock()->deleteHlblock($hlblockId);
+
+    }
 }
