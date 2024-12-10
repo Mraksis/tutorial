@@ -17,19 +17,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Localization\Loc;
 Loc::loadLanguageFile(__FILE__);
 ?>
-<?
-$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => "",
-		"PATH" => "",
-	)
-);?>
+
 <div class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url('<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>'); background-position: 50% 220.008px;" data-aos="fade" data-stellar-background-ratio="0.5">
 	<div class="container">
 		<div class="row align-items-center justify-content-center text-center">
@@ -47,10 +35,11 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
         <div class="row">
           <div class="col-lg-8" style="margin-top: -150px;">
             <div class="mb-5">
-              <div class="slide-one-item home-slider owl-carousel">
-                <div><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" class="img-fluid"></div>
-                <div><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" class="img-fluid"></div>
-                <div><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" class="img-fluid"></div>
+              <div class="slide-one-item home-slider owl-carousel">\
+                <?foreach ($arResult["DISPLAY_PROPERTIES"]["IMAGE_GALLERY"]["VALUE"] as $imageId):?>
+                  <?$image = CFile::GetFileArray($imageId);?>
+                  <div><img src="<?= $image["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" class="img-fluid"></div>
+                <? endforeach;?>
               </div>
             </div>
             <div class="bg-white">
@@ -101,42 +90,14 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
                 <div class="col-12">
                   <h2 class="h4 text-black mb-3"><?= Loc::getMessage('GALLERY')?></h2>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
+                <?foreach ($arResult["DISPLAY_PROPERTIES"]["IMAGE_GALLERY"]["VALUE"] as $imageId):?>
+                  <?$image = CFile::GetFileArray($imageId)?>
+                  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <a href="<?= $image["SRC"] ?>" class="image-popup gal-item">
+                      <img src="<?= $image["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" class="img-fluid">
+                    </a>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                  <a href="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" class="image-popup gal-item"><img src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="Image" class="img-fluid"></a>
-                </div>
+                <?endforeach;?>
               </div>
             </div>
           </div>

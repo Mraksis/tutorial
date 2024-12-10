@@ -10,19 +10,30 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);?>
+$this->setFrameMode(true);
+if(!$arResult["NavShowAlways"])
+{
+	if ($arResult["NavRecordCount"] == 0 || ($arResult["NavPageCount"] == 1 && $arResult["NavShowAll"] == false))
+		return;
+}
+$strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"]."&amp;" : "");
+$strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
+?>
 
 <div style="padding-bottom: 1em;">
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<div class="site-pagination">
-				<a href="#" class="active">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<a href="#">5</a>
-				<span>...</span>
-				<a href="#">10</a>
+				<?while($arResult["nStartPage"] <= $arResult["nEndPage"]):?>
+					<?if ($arResult["nStartPage"] == $arResult["NavPageNomer"]):?>
+						<a href="#" class="active"><?=$arResult["nStartPage"]?></a>
+					<?elseif($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false):?>
+						<a href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>"><?=$arResult["nStartPage"]?></a>
+					<?else:?>
+						<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["nStartPage"]?>"><?=$arResult["nStartPage"]?></a>
+					<?endif;?>
+					<?$arResult["nStartPage"]++;?>
+				<?endwhile;?>
 			</div>
 		</div>
 	</div>

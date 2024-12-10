@@ -15,19 +15,6 @@ $this->setFrameMode(true);
 <?
 use Bitrix\Main\Localization\Loc;
 ?>
-<?
-$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"",
-	Array(
-		"AREA_FILE_SHOW" => "file",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => "",
-		"PATH" => "",
-	)
-);?>
 
 <div class="pt-5"> <!-- фильтр -->
     <div class="container">
